@@ -11,7 +11,7 @@ use std::collections::HashMap;
 #[get("/")]
 fn index() -> Template {
     let mut context = HashMap::new();
-    context.insert("name".to_string(), "Jino Bae".to_string());
+    context.insert("name".to_string(), "Kyunghyu".to_string());
     Template::render("index", &context)
 }
 

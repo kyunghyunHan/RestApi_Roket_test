@@ -1,18 +1,32 @@
 # RestApi_Roket_test
 
-##
+## Web Framework
+
+- Actix :숙련자용 가장빠름
+
+- Rocket :입문자용
+
+- Yew:WASM에 적합함 컴포넌트 재사용 가능.미래지향적
+
+## Rocket
+
+## 로켓폴더생성
 
 ```
-cargo new hello-rocket --bin
+cargo new rocket_test --bin
 cd hello-rocket
 ```
 
-```
-[dependencies]
-rocket = "0.4.4"
-```
+## 2022 년 9월기준
 
 ```
+[dependencies]
+rocket = "0.4.10"
+```
+
+- mainrs
+
+```rs
 #![feature(proc_macro_hygiene, decl_macro)]
 
 #[macro_use] extern crate rocket;
@@ -27,13 +41,15 @@ fn main() {
 }
 ```
 
-##
+## Template
 
 ```
 [dependencies.rocket_contrib]
 version = "0.4.4"
 features = ["tera_templates"]
 ```
+
+- mainrs
 
 ```rs
 #![feature(proc_macro_hygiene, decl_macro)]
@@ -57,6 +73,8 @@ fn main() {
 }
 ```
 
+- base.html.tera
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -69,11 +87,15 @@ fn main() {
 </html>
 ```
 
+- index.html.tera
+
 ```html
 {% extends "base" %} {% block body %}
 <h1>Hello, {{ name }}.</h1>
 {% endblock body %}
 ```
+
+- main.rs
 
 ```rs
 #![feature(proc_macro_hygiene, decl_macro)]
